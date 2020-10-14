@@ -14,7 +14,7 @@ const App = () => {
     comprehensive_coverage: [[0, 'No coverage'], [500, 500], [1000, 1000]],
     collision_coverage: [[0, 'No coverage'], [1000, 1000]],
     transportation_replacement: [['You will not be covered', 'You will not be covered'], ['You will be covered', 'You will be covered']],
-    non_owned_autos: [['You will not be covered', 'You will not be covered'], ['You will be covered', 'You will be covered']],
+    non_owned_autos: [[false, 'You will not be covered'], [true, 'You will be covered']],
   }
 
   const vehicles = [

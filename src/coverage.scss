@@ -36,7 +36,8 @@ $error:   #e41632;
     border: 1px solid $primary;
     font-size: 0.8rem;
   }
-  h3, h4 {
+  h4 {
+    line-height: 26px;
     margin: 0;
   }
   &:hover {
@@ -48,13 +49,17 @@ $error:   #e41632;
   .Modify {
     max-height: 0;
     overflow: hidden;
-    transition: height 0.4s ease-in-out;
+    transition: max-height 0.4s ease-in-out;
   }
   &.Modifying {
     .Modify {
       max-height: 250px;
       .HelpCopy {
-        color: #777;
+        small {
+          display: block;
+          padding: 15px 0 15px 0;
+          color: #777;
+        }
       }
     }
   }
@@ -69,6 +74,18 @@ $error:   #e41632;
     .currencyValue,
     .textValue {
       color: $success;
+    }
+  }
+  &.Mid {
+    .currencyValue,
+    .textValue {
+      color: $warning;
+    }
+  }
+  &.Lowest {
+    .currencyValue,
+    .textValue {
+      color: $error;
     }
   }
 }

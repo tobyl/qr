@@ -7,7 +7,7 @@ const VehicleCoverageItem = ({ children, title, name }) => {
 
   const [modifyVisible, setModifyVisible] = useState(false)
 
-const { values, choices, vehicles } = useContext(AppContext)
+const { vehicles } = useContext(AppContext)
 
   const cls = classNames('CoverageItem', {
     'Modifying': modifyVisible,
@@ -24,7 +24,7 @@ const { values, choices, vehicles } = useContext(AppContext)
   const anyFalse = () => {
     const any = vehicles.filter(v => !v.depreciation_waiver)
     if (any.length > 0) {
-      return <small>Depreciation waivers are only available on new vehicles.</small>
+      return <small className="CoverageLevel">Depreciation waivers are only available on new vehicles.</small>
     }
     return null
   }
@@ -35,7 +35,7 @@ const { values, choices, vehicles } = useContext(AppContext)
         <h4>{title}</h4>
         {children}
         {vehicles.map((v) => (
-          <div>
+          <div key={v.title}>
             {icon(v)}
             <h5>{v.title}</h5>
           </div>

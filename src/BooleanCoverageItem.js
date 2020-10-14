@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import { AppContext } from './App'
 import { Shield, Warning, Stop } from './icons'
 
-const CoverageItem = ({ children, title, name, Highest = null, Mid = null, Lowest = null }) => {
+const BooleanCoverageItem = ({ children, title, name, Highest = null, Mid = null, Lowest = null }) => {
 
   const [modifyVisible, setModifyVisible] = useState(false)
 
@@ -11,27 +11,23 @@ const CoverageItem = ({ children, title, name, Highest = null, Mid = null, Lowes
 
   const val = values[name]
 
-  const isHighest = Number(val) === Number(Highest)
-  const isMid = Number(val) === Number(Mid)
-  const isLowest = Number(val) === Number(Lowest)
+  const isHighest = val === Highest
+  const isMid = val === Mid
+  const isLowest = val === Lowest
 
-  const cls = classNames('CoverageItem', {
+  const cls = classNames('CoverageItem BooleanCoverageItem', {
     'Modifying': modifyVisible,
     'Highest': isHighest,
     'Lowest': isLowest,
     'Mid': isMid,
   })
 
-  if (name === 'comprehensive_coverage') {
-    console.log(val, isMid)
-  }
-
   return (
     <div className={cls} onClick={() => setModifyVisible(!modifyVisible)}>
       <div>
         <div>
           {isHighest && <Shield />}
-          {isMid && <Warning />}
+          {!isMid && <Warning />}
           {isLowest && <Stop />}
           <h4>{title}</h4>
         </div>
@@ -41,4 +37,4 @@ const CoverageItem = ({ children, title, name, Highest = null, Mid = null, Lowes
   )
 }
 
-export default CoverageItem
+export default BooleanCoverageItem
