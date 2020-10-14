@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import CoverageItem from './CoverageItem'
-import VehicleCoverageItem from './VehicleCoverageItem'
+import DepreciationWaiverItem from './DepreciationWaiverItem'
+import AccidentWaiverItem from './AccidentWaiverItem'
 import RadioGroup from './RadioGroup'
 import { AppContext } from './App'
 import { formatValue } from './utils'
@@ -64,12 +65,12 @@ const CoverageList = () => {
         </div>
         <small className="CoverageLevel">Lower than Inova's recommended level of coverage</small>
       </CoverageItem>
-      <VehicleCoverageItem title="Waiver of Depreciation" name="depreciation_waiver">
+      <DepreciationWaiverItem title="Waiver of Depreciation" name="depreciation_waiver">
         <p className="BriefDescription">Ensures that in the event of an accident, you will be reimbursed for the purchase price without any depreciation.</p>
-      </VehicleCoverageItem>
-      <VehicleCoverageItem title="Accident Waiver" name="accident_waiver">
+      </DepreciationWaiverItem>
+      <AccidentWaiverItem title="Accident Waiver" name="accident_waiver">
         <p className="BriefDescription">In the event of you being in an accident in which you are at fault, it will protect your driving record and forgive the accident.</p>
-      </VehicleCoverageItem>
+      </AccidentWaiverItem>
     </div>
   )
 }

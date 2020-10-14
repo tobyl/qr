@@ -1,9 +1,9 @@
 import React, { useState, useContext } from 'react'
 import classNames from 'classnames'
 import { AppContext } from './App'
-// import { Star, Warning } from './icons'
+import { Star, Warning } from './icons'
 
-const VehicleCoverageItem = ({ children, title, name }) => {
+const AccidentWaiverItem = ({ children, title, name }) => {
 
   const [modifyVisible, setModifyVisible] = useState(false)
 
@@ -14,18 +14,17 @@ const { values, choices, vehicles } = useContext(AppContext)
   })
 
   const icon = vehicle => {
-    if (name === 'accident_waiver') {
-      if (vehicle.accident_waiver) {
-        return <span>yup!</span>
-      } else {
-        return <span>nope!</span>
-      }
-    } else if (name === 'depreciation_waiver') {
-      if (vehicle.depreciation_waiver) {
-        return <span>yup!</span>
-      } else {
-        return <span>nope!</span>
-      }
+    if (vehicle.accident_waiver) {
+      return <span><Star /></span>
+    } else {
+      return <span><Warning /></span>
+    }
+  }
+
+  const anyFalse = () => {
+    const any = vehicles.filter(v => !v.depreciation_waiver)
+    if (any.length > 0) {
+      return <small>Depreciation waivers are only available on new vehicles.</small>
     }
     return null
   }
@@ -35,14 +34,16 @@ const { values, choices, vehicles } = useContext(AppContext)
       <div onClick={() => setModifyVisible(!modifyVisible)}>
         <h4>{title}</h4>
         {children}
-        {vehicles.map(v =>
+        {vehicles.map((v) => (
           <div>
-            <h5>{v.title} {icon(v)}</h5>
+            {icon(v)}
+            <h5>{v.title}</h5>
           </div>
-        )}
+        ))}
       </div>
+      {anyFalse()}
     </div>
   )
 }
 
-export default VehicleCoverageItem
+export default AccidentWaiverItem

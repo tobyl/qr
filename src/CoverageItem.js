@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react'
 import classNames from 'classnames'
 import { AppContext } from './App'
-import { Shield, Warning } from './icons'
+import { Shield, Warning, Stop } from './icons'
 
 const CoverageItem = ({ children, title, name }) => {
 
@@ -27,7 +27,9 @@ const CoverageItem = ({ children, title, name }) => {
     <div className={cls} onClick={() => setModifyVisible(!modifyVisible)}>
       <div>
         <div>
-          {isHighest ? <Shield /> : <Warning />}
+          {isHighest && <Shield />}
+          {!isHighest && !isLowest && <Warning />}
+          {isLowest && <Stop />}
           <h4>{title}</h4>
         </div>
         {children}

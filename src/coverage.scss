@@ -11,7 +11,8 @@ $error:   #e41632;
   margin-bottom: 1.5rem;
   .Star,
   .Warning,
-  .Shield {
+  .Shield,
+  .Stop {
     height: 26px;
     float: right;
   }
@@ -21,6 +22,9 @@ $error:   #e41632;
   }
   .Shield {
     .bg { fill: $success }
+  }
+  .Stop {
+    .bg { fill: $error }
   }
   .Warning {
     height: 26px;
