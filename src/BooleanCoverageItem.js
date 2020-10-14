@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import { AppContext } from './App'
 import { Shield, Warning, Stop } from './icons'
 
-const BooleanCoverageItem = ({ children, title, name, Highest = null, Mid = null, Lowest = null }) => {
+const BooleanCoverageItem = ({ children, title, name, Highest = 'false', Lowest = 'false' }) => {
 
   const [modifyVisible, setModifyVisible] = useState(false)
 
@@ -12,14 +12,12 @@ const BooleanCoverageItem = ({ children, title, name, Highest = null, Mid = null
   const val = values[name]
 
   const isHighest = val === Highest
-  const isMid = val === Mid
   const isLowest = val === Lowest
 
   const cls = classNames('CoverageItem BooleanCoverageItem', {
     'Modifying': modifyVisible,
     'Highest': isHighest,
-    'Lowest': isLowest,
-    'Mid': isMid,
+    'Mid': isLowest,
   })
 
   return (
@@ -27,8 +25,7 @@ const BooleanCoverageItem = ({ children, title, name, Highest = null, Mid = null
       <div>
         <div>
           {isHighest && <Shield />}
-          {!isMid && <Warning />}
-          {isLowest && <Stop />}
+          {isLowest && <Warning />}
           <h4>{title}</h4>
         </div>
         {children}

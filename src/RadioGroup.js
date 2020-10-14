@@ -3,7 +3,7 @@ import { AppContext } from './App'
 
 import './radios.scss'
 
-const RadioGroup = ({ name, choices = [] }) => {
+const RadioGroup = ({ name, choices = [], kind = 'number' }) => {
 
   const { set, values } = useContext(AppContext)
 
@@ -12,21 +12,32 @@ const RadioGroup = ({ name, choices = [] }) => {
     set(name, val)
   }
 
+  const compareVals = item => {
+    if (kind === 'number') {
+      return item === Number(values[name])
+    }
+    return item === values[name]
+  }
+
   return (
     <div className="RadioGroup">
-      {choices.map(ch =>
-        <label htmlFor={ch[0]} key={ch[0]} className={ch[0] === Number(values[name]) ? 'current' : null}>
+      {choices.map((ch, i) => (
+        <label
+          htmlFor={name + i}
+          key={name + i}
+          className={compareVals(ch[0]) ? 'current' : null}
+        >
           <input
-            id={ch[0]}
+            id={name + i}
             name={name}
             type="radio"
             onChange={onChange}
             value={ch[0]}
-            checked={ch[0] === Number(values[name])}
+            checked={compareVals(ch[0])}
           />
-          <span>{ch[1]}</span> 
-        </label> 
-      )}
+          <span>{ch[1]}</span>
+        </label>
+      ))}
     </div>
   )
 }

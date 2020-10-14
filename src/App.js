@@ -13,8 +13,8 @@ const App = () => {
     liability_limit: [[1000000, 1000000], [2000000, 2000000]],
     comprehensive_coverage: [[0, 'No coverage'], [500, 500], [1000, 1000]],
     collision_coverage: [[0, 'No coverage'], [1000, 1000]],
-    transportation_replacement: [['You will not be covered', 'You will not be covered'], ['You will be covered', 'You will be covered']],
-    non_owned_autos: [[false, 'You will not be covered'], [true, 'You will be covered']],
+    transportation_replacement: [['false', 'You will not be covered'], ['true', 'You will be covered']],
+    non_owned_autos: [['false', 'You will not be covered'], ['true', 'You will be covered']],
   }
 
   const vehicles = [
@@ -28,8 +28,8 @@ const App = () => {
     liability_limit: 2000000,
     comprehensive_coverage: 500,
     collision_coverage: 500,
-    transportation_replacement: 'You will be covered',
-    non_owned_autos: 'You will be covered',
+    transportation_replacement: 'true',
+    non_owned_autos: 'true',
   })
 
   const set = (name, value) => {

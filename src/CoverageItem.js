@@ -22,10 +22,6 @@ const CoverageItem = ({ children, title, name, Highest = null, Mid = null, Lowes
     'Mid': isMid,
   })
 
-  if (name === 'comprehensive_coverage') {
-    console.log(val, isMid)
-  }
-
   return (
     <div className={cls} onClick={() => setModifyVisible(!modifyVisible)}>
       <div>
