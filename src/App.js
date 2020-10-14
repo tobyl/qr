@@ -12,7 +12,7 @@ const App = () => {
   const choices = {
     liability_limit: [[1000000, 1000000], [2000000, 2000000]],
     comprehensive_coverage: [[0, 'No coverage'], [500, 500], [1000, 1000]],
-    collision_coverage: [[0, 'No coverage'], [1000, 1000]],
+    collision_coverage: [[0, 'No coverage'], [500, 500], [1000, 1000]],
     transportation_replacement: [['false', 'You will not be covered'], ['true', 'You will be covered']],
     non_owned_autos: [['false', 'You will not be covered'], ['true', 'You will be covered']],
   }

@@ -70,7 +70,13 @@ const CoverageList = () => {
           Lower than Inova's recommended level of coverage
         </small>
       </CoverageItem>
-      <CoverageItem title="Collision Coverage" name="collision_coverage">
+      <CoverageItem
+        title="Collision Coverage"
+        name="collision_coverage"
+        Highest="1000"
+        Mid="500"
+        Lowest="0"
+      >
         <p className="BriefDescription">
           A deductible of{' '}
           {formatValue(values['collision_coverage'], 'currency')} for your

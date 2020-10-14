@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react'
 import classNames from 'classnames'
 import { AppContext } from './App'
-import { Shield, Warning, Stop } from './icons'
+import { Shield, Warning } from './icons'
 
 const BooleanCoverageItem = ({ children, title, name, Highest = 'false', Lowest = 'false' }) => {
 
