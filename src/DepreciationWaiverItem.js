@@ -9,8 +9,8 @@ const VehicleCoverageItem = ({ children, title, name }) => {
 
 const { vehicles } = useContext(AppContext)
 
-  const cls = classNames('CoverageItem', {
-    'Modifying': modifyVisible,
+  const cls = classNames('CoverageItem VehicleCoverageItem', {
+    Modifying: modifyVisible,
   })
 
   const icon = vehicle => {
@@ -37,7 +37,7 @@ const { vehicles } = useContext(AppContext)
         {vehicles.map((v) => (
           <div key={v.title}>
             {icon(v)}
-            <h5>{v.title}</h5>
+            <h5 className={v.depreciation_waiver ? 'VehicleTitle' : 'VehicleTitle notApplicable'}>{v.title}</h5>
           </div>
         ))}
       </div>

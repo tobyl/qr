@@ -9,7 +9,7 @@ const AccidentWaiverItem = ({ children, title, name }) => {
 
 const { vehicles } = useContext(AppContext)
 
-  const cls = classNames('CoverageItem', {
+  const cls = classNames('CoverageItem VehicleCoverageItem', {
     'Modifying': modifyVisible,
   })
 
@@ -37,7 +37,7 @@ const { vehicles } = useContext(AppContext)
         {vehicles.map((v) => (
           <div key={v.title}>
             {icon(v)}
-            <h5>{v.title}</h5>
+            <h5 className="VehicleTitle">{v.title}</h5>
           </div>
         ))}
       </div>

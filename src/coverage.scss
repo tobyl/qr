@@ -57,7 +57,7 @@ $error:   #e41632;
       .HelpCopy {
         small {
           display: block;
-          padding: 15px 0 15px 0;
+          padding: 15px 0 25px 0;
           color: #777;
         }
       }
@@ -113,6 +113,18 @@ $error:   #e41632;
     .VehicleCoverageItem {
       width: 49%;
       margin: 10px;
+    }
+  }
+}
+
+.VehicleCoverageItem {
+  .VehicleTitle {
+    line-height: 26px;
+    margin: 0 0 12px 0;
+    color: $success;
+    &.notApplicable {
+      color: $warning;
+      text-decoration: line-through;
     }
   }
 }
