@@ -1,0 +1,27 @@
+$primary: #0953a0;
+$success: #2ec36a;
+$warning: #ffa200;
+$error:   #e41632;
+
+.RadioGroup {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  label {
+    display: block;
+    flex-grow: 1;
+    margin-right: 10px;
+    background: #eee;
+    padding: 5px;
+    &:last-child {
+      margin-right: 0;
+    }
+    span {
+      display: inline-block;
+      color: $primary;
+    }
+    &.current {
+      background: lighten($success, 40%);
+    }
+  }
+}

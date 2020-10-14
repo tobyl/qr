@@ -1,0 +1,58 @@
+$primary: #0953a0;
+$success: #2ec36a;
+$warning: #ffa200;
+$error:   #e41632;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h2,
+h3,
+h4,
+h5,
+strong {
+  color: $primary;
+  font-weight: 500;
+}
+
+.lead {
+  font-size: 1.35rem;
+}
+
+.App {
+  padding: 15px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.primary {
+  color: $primary;
+}
+
+.success {
+  color: $success;
+}
+
+svg {
+  display: inline-block;
+}
+
+.lead svg {
+  height: 18px;
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
