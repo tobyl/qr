@@ -1,4 +1,6 @@
 import React, { useContext } from 'react'
+import classNames from 'classnames'
+import numeral from 'numeral'
 import { AppContext } from './App'
 
 import './radios.scss'
@@ -19,13 +21,26 @@ const RadioGroup = ({ name, choices = [], kind = 'number' }) => {
     return item === values[name]
   }
 
+  const format = value => {
+    if (kind === 'number') {
+      return numeral(value).format('0,0')
+    }
+    return value
+  }
+
+  const cls = () => {
+    return classNames({
+      'current': true, 
+    })
+  }
+
   return (
     <div className="RadioGroup">
       {choices.map((ch, i) => (
         <label
           htmlFor={name + i}
           key={name + i}
-          className={compareVals(ch[0]) ? 'current' : null}
+          className={cls()}
         >
           <input
             id={name + i}
@@ -35,7 +50,7 @@ const RadioGroup = ({ name, choices = [], kind = 'number' }) => {
             value={ch[0]}
             checked={compareVals(ch[0])}
           />
-          <span>{ch[1]}</span>
+          <span>{format(ch[1])}</span>
         </label>
       ))}
     </div>

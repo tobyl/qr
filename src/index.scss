@@ -51,6 +51,18 @@ svg {
   height: 18px;
 }
 
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
 .clearfix:after {
   content: "";
   display: table;

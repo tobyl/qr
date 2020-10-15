@@ -5,7 +5,7 @@ import { Shield, Warning, Stop } from './icons'
 
 const CoverageItem = ({ children, title, name, Highest = null, Mid = null, Lowest = null }) => {
 
-  const [modifyVisible, setModifyVisible] = useState(false)
+  const [modifyVisible, setModifyVisible] = useState(true)
 
   const { values } = useContext(AppContext)
 

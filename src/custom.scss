@@ -26,11 +26,11 @@ $error:   #e41632;
 .StickyHeader {
   position: sticky;
   top: 0;
-  margin-left: -7px;
+  height: 65px;
   border-bottom: 1px solid #ccc;
   background: #fff;
-  padding-top: 6px;
-  padding-bottom: 6px;
+  margin: 0 -10px 0 -10px;
+  padding: 10px 10px 6px 10px;
   box-shadow: 0 6px 12px rgba(255,255,255, 1);
   .left {
     float: left;
@@ -58,4 +58,112 @@ $error:   #e41632;
     line-height: 15px;
     color: #777;
   }
+  .Requote {
+    p {
+      margin: 0;
+      color: $primary;
+      text-align: center;
+      font-size: 1.25rem;
+    }
+  }
+}
+
+// table
+
+.ChartCoverageItem {
+  h4 {
+    margin-bottom: 1rem;
+  }
+  table {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+    font-size: 0.8rem;
+    td,
+    th {
+      padding: 5px;
+    }
+    th {
+      border-bottom: 1px solid #ccc;
+    }
+    td {
+      border-bottom: 1px solid #ccc;
+    }
+    tr:last-child {
+      td {
+        border: none;
+      }
+    }
+    label {
+      display: block;
+      span {
+        display: block;
+      }
+    }
+    small {
+      display: block;
+    }
+    .Standard {
+      small {
+        color: #777;
+      }
+      strong {
+        color: $warning;
+        font-weight: 600;
+      }
+    }
+    .Increased {
+      small {
+        color: #777;
+      }
+      strong {
+        color: $success;
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+// loading button
+
+.LoadingButton {
+  border: 1px solid $success;
+  background: lighten($success, 45%);
+  transition: background 0.23s ease-out;
+  border-radius: 5px;
+  padding: 5px 12px;
+  vertical-align: middle;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+  color: darken($success, 10%);
+  font-weight: bolder;
+  outline: none;
+  &:hover {
+    background: lighten($success, 40%);
+    cursor: pointer;
+  }
+}
+
+.spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  vertical-align: middle
+}
+
+.spinner:after {
+  content: "";
+  display: block;
+  width: 13px;
+  height: 13px;
+  margin: 0 0 0 5px;
+  border-radius: 50%;
+  border: 3px solid darken($success, 10%);
+  border-color: darken($success, 10%) transparent darken($success, 10%) transparent;
+  animation: spinner 1.2s linear infinite;
+}
+
+@keyframes spinner {
+  0%   { transform: rotate(0deg) }
+  100% { transform: rotate(360deg) }
 }
