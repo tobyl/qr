@@ -21,10 +21,12 @@ $error:   #e41632;
     .fg { fill: $success }
   }
   .Shield {
-    .bg { fill: $success }
+    .bg { fill: lighten($success, 35%) }
+    .fg { fill: $success }
   }
   .Stop {
     .bg { fill: $error }
+    .fg { fill: lighten($error, 25%) }
   }
   .Warning {
     height: 26px;

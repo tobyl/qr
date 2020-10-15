@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react'
 import classNames from 'classnames'
 import { AppContext } from './App'
-import { Star, Warning } from './icons'
+import { Shield, Warning } from './icons'
 
 const VehicleCoverageItem = ({ children, title, name }) => {
 
@@ -15,7 +15,7 @@ const { vehicles } = useContext(AppContext)
 
   const icon = vehicle => {
     if (vehicle.depreciation_waiver) {
-      return <span><Star /></span>
+      return <span><Shield /></span>
     } else {
       return <span><Warning /></span>
     }
