@@ -8,20 +8,37 @@ $error:   #e41632;
   flex-direction: row;
   justify-content: space-evenly;
   label {
+    position: relative;
     display: block;
     flex-grow: 1;
     margin-right: 10px;
-    background: #eee;
     padding: 5px;
     &:last-child {
       margin-right: 0;
     }
-    span {
-      display: inline-block;
-      color: $primary;
+    &.LowChoice {
+      border: 1px solid #ccc;
+      color: #777;
+      border-radius: 4px;
+      svg {
+        height: 20px;
+      }
     }
-    &.current {
-      
+    &.MidChoice {
+      border: 1px solid #ccc;
+      color: #777;
+      border-radius: 4px;
+      svg {
+        height: 20px;
+      }
+    }
+    &.HighChoice {
+      border: 1px solid #ccc;
+      color: #777;
+      border-radius: 4px;
+      svg {
+        height: 20px;
+      }
     }
   }
 }

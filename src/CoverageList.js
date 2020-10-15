@@ -51,10 +51,19 @@ const CoverageList = () => {
           Lowest="0"
         >
           <p className="BriefDescription">
-            A deductible of{' '}
-            {formatValue(values['comprehensive_coverage'], 'currency')} for
-            damages to your vehicle not caused by a traffic accident (e.g.
-            theft, fire, vandalism).
+            {Number(values['comprehensive_coverage']) === 0 ? (
+              <span>
+                No coverage for damages to your vehicle not caused by a traffic
+                accident (e.g. theft, fire, vandalism).
+              </span>
+            ) : (
+              <span>
+                A deductible of{' '}
+                {formatValue(values['comprehensive_coverage'], 'currency')} for
+                damages to your vehicle not caused by a traffic accident (e.g.
+                theft, fire, vandalism).
+              </span>
+            )}
           </p>
           <div className="Modify">
             <RadioGroup
@@ -80,10 +89,20 @@ const CoverageList = () => {
           Lowest="0"
         >
           <p className="BriefDescription">
-            A deductible of{' '}
-            {formatValue(values['collision_coverage'], 'currency')} for your
-            vehicle in the event of an at-fault accident, single vehicle
-            accident, or hit and run.
+            {Number(values['collision_coverage']) === 0 ? (
+              <span>
+                No coverage for your
+                vehicle in the event of an at-fault accident, single vehicle
+                accident, or hit and run.
+              </span>
+            ) : (
+              <span>
+                A deductible of{' '}
+                {formatValue(values['collision_coverage'], 'currency')} for your
+                vehicle in the event of an at-fault accident, single vehicle
+                accident, or hit and run.
+              </span>
+            )}
           </p>
           <div className="Modify">
             <RadioGroup
@@ -108,8 +127,17 @@ const CoverageList = () => {
           Lowest="false"
         >
           <p className="BriefDescription">
-            {values['transportation_replacement']} for a replacement vehicle if
-            an insurance claim requires your vehicle to be out of service.
+            {values['transportation_replacement'] === 'true' ? (
+              <span>
+                You will be covered for a replacement vehicle if an insurance
+                claim requires your vehicle to be out of service.
+              </span>
+            ) : (
+              <span>
+                No coverage for a replacement vehicle if an insurance claim
+                requires your vehicle to be out of service.
+              </span>
+            )}
           </p>
           <div className="Modify">
             <RadioGroup
@@ -161,10 +189,10 @@ const CoverageList = () => {
           </p>
         </AccidentWaiverItem>
         <CoverageItem
-          title="Medical, Rehabilitation and Attendant Care (Non-Catastrophic Injury)"
+          title="Medical, Rehabilitation and Attendant Care (Catastrophic Injury)"
           name="medical_rehab_non"
-          Highest="1000000"
-          Mid="130000"
+          Mid="1000000"
+          Highest="2000000"
         >
           <p className="BriefDescription">
             Reimbursement for medical and rehabilitation costs up to{' '}
@@ -179,9 +207,7 @@ const CoverageList = () => {
             <div className="HelpCopy">
               <small>
                 Attendant care is reimbursement for an attendant to care for you
-                if you are unable. Standard coverage provides up to $65,000 for
-                non-catastrophic injuries. Please select an increased optional
-                amount in the drop down if required.
+                if you are unable.
               </small>
             </div>
           </div>

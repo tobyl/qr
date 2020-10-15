@@ -21,16 +21,11 @@ const RadioGroup = ({ name, choices = [], kind = 'number' }) => {
     return item === values[name]
   }
 
-  const format = value => {
-    if (kind === 'number') {
-      return numeral(value).format('0,0')
-    }
-    return value
-  }
-
-  const cls = () => {
+  const cls = (index, str = 'LowChoice') => {
+    console.log(index)
     return classNames({
-      'current': true, 
+      'current': true,
+      [str]: str,
     })
   }
 
@@ -40,7 +35,7 @@ const RadioGroup = ({ name, choices = [], kind = 'number' }) => {
         <label
           htmlFor={name + i}
           key={name + i}
-          className={cls()}
+          className={cls(i, ch[2])}
         >
           <input
             id={name + i}
@@ -50,7 +45,7 @@ const RadioGroup = ({ name, choices = [], kind = 'number' }) => {
             value={ch[0]}
             checked={compareVals(ch[0])}
           />
-          <span>{format(ch[1])}</span>
+          {ch[1]}
         </label>
       ))}
     </div>

@@ -17,7 +17,7 @@ const { vehicles } = useContext(AppContext)
     if (vehicle.depreciation_waiver) {
       return <span><Shield /></span>
     } else {
-      return <span><Warning /></span>
+      return <span className="NotApplicable">N/A</span>
     }
   }
 

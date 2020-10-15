@@ -5,7 +5,7 @@ import { Shield, Warning, Stop } from './icons'
 
 const CoverageItem = ({ children, title, name, Highest = null, Mid = null, Lowest = null }) => {
 
-  const [modifyVisible, setModifyVisible] = useState(true)
+  const [modifyVisible, setModifyVisible] = useState(false)
 
   const { values } = useContext(AppContext)
 
@@ -21,6 +21,10 @@ const CoverageItem = ({ children, title, name, Highest = null, Mid = null, Lowes
     'Lowest': isLowest,
     'Mid': isMid,
   })
+
+  if (name === 'medical_rehab_non') {
+    console.log(values[name], Highest, Mid, Lowest)
+  }
 
   return (
     <div className={cls} onClick={() => setModifyVisible(!modifyVisible)}>
